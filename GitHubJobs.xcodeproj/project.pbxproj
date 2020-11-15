@@ -11,7 +11,7 @@
 		E379399E25618466008D30E3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E379399D25618466008D30E3 /* NetworkManager.swift */; };
 		E39B3040255F4B8F00EFDE6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B303F255F4B8F00EFDE6D /* AppDelegate.swift */; };
 		E39B3042255F4B8F00EFDE6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B3041255F4B8F00EFDE6D /* SceneDelegate.swift */; };
-		E39B3044255F4B8F00EFDE6D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B3043255F4B8F00EFDE6D /* ViewController.swift */; };
+		E39B3044255F4B8F00EFDE6D /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B3043255F4B8F00EFDE6D /* StartViewController.swift */; };
 		E39B3047255F4B8F00EFDE6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E39B3045255F4B8F00EFDE6D /* Main.storyboard */; };
 		E39B3049255F4B9000EFDE6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E39B3048255F4B9000EFDE6D /* Assets.xcassets */; };
 		E39B304C255F4B9000EFDE6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E39B304A255F4B9000EFDE6D /* LaunchScreen.storyboard */; };
@@ -26,7 +26,7 @@
 		E39B303C255F4B8F00EFDE6D /* GitHubJobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubJobs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E39B303F255F4B8F00EFDE6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E39B3041255F4B8F00EFDE6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E39B3043255F4B8F00EFDE6D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E39B3043255F4B8F00EFDE6D /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		E39B3046255F4B8F00EFDE6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E39B3048255F4B9000EFDE6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E39B304B255F4B9000EFDE6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +47,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E37939A42561B2C7008D30E3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E39B3043255F4B8F00EFDE6D /* StartViewController.swift */,
+				E3793999256163D1008D30E3 /* LoaderViewController.swift */,
+				E39B3061256010D700EFDE6D /* PositionInfoViewController.swift */,
+				E39B3057255F576200EFDE6D /* PositionsTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E37939A72561B2F2008D30E3 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E39B3045255F4B8F00EFDE6D /* Main.storyboard */,
+				E39B304A255F4B9000EFDE6D /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		E39B3033255F4B8F00EFDE6D = {
 			isa = PBXGroup;
 			children = (
@@ -66,20 +86,48 @@
 		E39B303E255F4B8F00EFDE6D /* GitHubJobs */ = {
 			isa = PBXGroup;
 			children = (
-				E39B303F255F4B8F00EFDE6D /* AppDelegate.swift */,
-				E39B3041255F4B8F00EFDE6D /* SceneDelegate.swift */,
-				E39B3043255F4B8F00EFDE6D /* ViewController.swift */,
-				E3793999256163D1008D30E3 /* LoaderViewController.swift */,
-				E379399D25618466008D30E3 /* NetworkManager.swift */,
-				E39B3054255F502300EFDE6D /* Job.swift */,
-				E39B3045255F4B8F00EFDE6D /* Main.storyboard */,
-				E39B3061256010D700EFDE6D /* PositionInfoViewController.swift */,
-				E39B3057255F576200EFDE6D /* PositionsTableViewController.swift */,
-				E39B3048255F4B9000EFDE6D /* Assets.xcassets */,
-				E39B304A255F4B9000EFDE6D /* LaunchScreen.storyboard */,
-				E39B304D255F4B9000EFDE6D /* Info.plist */,
+				E37939A72561B2F2008D30E3 /* Storyboards */,
+				E37939A42561B2C7008D30E3 /* ViewControllers */,
+				E3F762032561B4C100A78B7C /* SupportingFiles */,
+				E3F762012561B4B300A78B7C /* Managers */,
+				E3F761FF2561B4A800A78B7C /* Models */,
+				E3F761FE2561B49A00A78B7C /* Resources */,
 			);
 			path = GitHubJobs;
+			sourceTree = "<group>";
+		};
+		E3F761FE2561B49A00A78B7C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E39B3048255F4B9000EFDE6D /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E3F761FF2561B4A800A78B7C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E39B3054255F502300EFDE6D /* Job.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E3F762012561B4B300A78B7C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E379399D25618466008D30E3 /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		E3F762032561B4C100A78B7C /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				E39B303F255F4B8F00EFDE6D /* AppDelegate.swift */,
+				E39B3041255F4B8F00EFDE6D /* SceneDelegate.swift */,
+				E39B304D255F4B9000EFDE6D /* Info.plist */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,7 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E39B3044255F4B8F00EFDE6D /* ViewController.swift in Sources */,
+				E39B3044255F4B8F00EFDE6D /* StartViewController.swift in Sources */,
 				E39B3058255F576200EFDE6D /* PositionsTableViewController.swift in Sources */,
 				E39B3062256010D700EFDE6D /* PositionInfoViewController.swift in Sources */,
 				E39B3040255F4B8F00EFDE6D /* AppDelegate.swift in Sources */,
@@ -307,7 +355,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GitHubJobs/Info.plist;
+				INFOPLIST_FILE = GitHubJobs/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -325,7 +373,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = GitHubJobs/Info.plist;
+				INFOPLIST_FILE = GitHubJobs/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
