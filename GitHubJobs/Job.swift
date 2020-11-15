@@ -5,8 +5,6 @@
 //  Created by Айдар Рахматуллин on 14.11.2020.
 //
 
-import Foundation
-
 struct Job: Decodable {
     let title: String?
     let company: String?
