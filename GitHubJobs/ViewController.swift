@@ -17,17 +17,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func searchButtonPressed(_ sender: UIButton) {
-        
-        performSegue(withIdentifier: "showResults", sender: nil)
+        performSegue(withIdentifier: "waitForSearch", sender: nil)
+    }
+    
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showResults" {
-            let resultsVC = segue.destination as! PositionsTableViewController
-            resultsVC.positionTitle = positionTextField.text
-            resultsVC.locationTitle = locationTextField.text
+        if segue.identifier == "waitForSearch" {
+            let loaderVC = segue.destination as! WatForSearchViewController
+            loaderVC.positionTitle = positionTextField.text
+            loaderVC.locationTitle = locationTextField.text
         }
     }
-    
 }
 

@@ -24,7 +24,22 @@ class PositionInfoViewController: UIViewController {
         locationLabel.text = "Location: \(position.location ?? "0")"
         jobTypeLabel.text = "Job type: \(position.type ?? "0")"
         postedDateLabel.text = position.created_at
-        jobDescriptionLabel.text = position.description
-        
+        jobDescriptionLabel.attributedText = position.description?.htmlAttributedString()
     }
 }
+
+
+extension String {
+    func htmlAttributedString() -> NSAttributedString? {
+        guard let data = self.data(using: .utf8) else {
+            return nil
+        }
+        
+        return try? NSAttributedString(
+            data: data,
+            options: [.documentType: NSAttributedString.DocumentType.html],
+            documentAttributes: nil
+        )
+    }
+}
+
