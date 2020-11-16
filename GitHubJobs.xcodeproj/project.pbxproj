@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E379399A256163D1008D30E3 /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3793999256163D1008D30E3 /* LoaderViewController.swift */; };
+		E376FBD725631A91008939DC /* PositionsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376FBD625631A91008939DC /* PositionsListViewController.swift */; };
 		E379399E25618466008D30E3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E379399D25618466008D30E3 /* NetworkManager.swift */; };
 		E39B3040255F4B8F00EFDE6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B303F255F4B8F00EFDE6D /* AppDelegate.swift */; };
 		E39B3042255F4B8F00EFDE6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B3041255F4B8F00EFDE6D /* SceneDelegate.swift */; };
@@ -16,12 +16,11 @@
 		E39B3049255F4B9000EFDE6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E39B3048255F4B9000EFDE6D /* Assets.xcassets */; };
 		E39B304C255F4B9000EFDE6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E39B304A255F4B9000EFDE6D /* LaunchScreen.storyboard */; };
 		E39B3055255F502300EFDE6D /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B3054255F502300EFDE6D /* Job.swift */; };
-		E39B3058255F576200EFDE6D /* PositionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B3057255F576200EFDE6D /* PositionsTableViewController.swift */; };
 		E39B3062256010D700EFDE6D /* PositionInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B3061256010D700EFDE6D /* PositionInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E3793999256163D1008D30E3 /* LoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderViewController.swift; sourceTree = "<group>"; };
+		E376FBD625631A91008939DC /* PositionsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionsListViewController.swift; sourceTree = "<group>"; };
 		E379399D25618466008D30E3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E39B303C255F4B8F00EFDE6D /* GitHubJobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubJobs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E39B303F255F4B8F00EFDE6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -32,7 +31,6 @@
 		E39B304B255F4B9000EFDE6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E39B304D255F4B9000EFDE6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E39B3054255F502300EFDE6D /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
-		E39B3057255F576200EFDE6D /* PositionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionsTableViewController.swift; sourceTree = "<group>"; };
 		E39B3061256010D700EFDE6D /* PositionInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,9 +49,8 @@
 			isa = PBXGroup;
 			children = (
 				E39B3043255F4B8F00EFDE6D /* StartViewController.swift */,
-				E3793999256163D1008D30E3 /* LoaderViewController.swift */,
+				E376FBD625631A91008939DC /* PositionsListViewController.swift */,
 				E39B3061256010D700EFDE6D /* PositionInfoViewController.swift */,
-				E39B3057255F576200EFDE6D /* PositionsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -201,13 +198,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E39B3044255F4B8F00EFDE6D /* StartViewController.swift in Sources */,
-				E39B3058255F576200EFDE6D /* PositionsTableViewController.swift in Sources */,
 				E39B3062256010D700EFDE6D /* PositionInfoViewController.swift in Sources */,
 				E39B3040255F4B8F00EFDE6D /* AppDelegate.swift in Sources */,
 				E379399E25618466008D30E3 /* NetworkManager.swift in Sources */,
+				E376FBD725631A91008939DC /* PositionsListViewController.swift in Sources */,
 				E39B3042255F4B8F00EFDE6D /* SceneDelegate.swift in Sources */,
 				E39B3055255F502300EFDE6D /* Job.swift in Sources */,
-				E379399A256163D1008D30E3 /* LoaderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

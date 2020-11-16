@@ -28,9 +28,9 @@ class StartViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let navigationVC = segue.destination as! UINavigationController
-        let loaderVC = navigationVC.topViewController as! LoaderViewController
-        loaderVC.positionTitle = positionTextField.text
-        loaderVC.locationTitle = locationTextField.text
+        let positionsVC = navigationVC.topViewController as! PositionsListViewController
+        positionsVC.positionTitle = positionTextField.text
+        positionsVC.locationTitle = locationTextField.text
     }
 }
 
