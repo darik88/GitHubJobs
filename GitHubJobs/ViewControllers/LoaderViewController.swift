@@ -18,6 +18,8 @@ class LoaderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        positionTitle = positionTitle.replacingOccurrences(of: " ", with: "+")
+        locationTitle = locationTitle.replacingOccurrences(of: " ", with: "+")
         navigationItem.hidesBackButton = true
         loaderActivityIndicator.startAnimating()
         loaderActivityIndicator.hidesWhenStopped = true
