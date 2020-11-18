@@ -11,8 +11,10 @@ class PositionsListViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var loaderActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet var morePositionsButton: UIButton!
     
     var positions: [Job] = []
+    var page: Int = 1
     var positionTitle: String!
     var locationTitle: String!
     
@@ -20,21 +22,37 @@ class PositionsListViewController: UIViewController {
         super.viewDidLoad()
         positionTitle = positionTitle.replacingOccurrences(of: " ", with: "+")
         locationTitle = locationTitle.replacingOccurrences(of: " ", with: "+")
+        getPositions()
+    }
+    
+    private func getPositions() {
+        morePositionsButton.isHidden = true
         loaderActivityIndicator.startAnimating()
         loaderActivityIndicator.hidesWhenStopped = true
         
-        let url = "https://jobs.github.com/positions.json?description=\(positionTitle ?? "")&location=\(locationTitle ?? "")"
+        let url = "https://jobs.github.com/positions.json?description=\(positionTitle ?? "")&location=\(locationTitle ?? "")&page=\(page)"
         
         NetworkManager.shared.getPositions(fromURL: url) {(positions) in
             DispatchQueue.main.async {
-                self.positions = positions
-                if self.positions.count == 0 {
+                
+                guard positions.count > 0 else {
+                    self.loaderActivityIndicator.stopAnimating()
                     self.noResultsFoundAlert()
+                    return
                 }
+                
+                self.positions = positions
                 self.tableView.reloadData()
                 self.loaderActivityIndicator.stopAnimating()
+                self.morePositionsButton.isHidden = false
+                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             }
         }
+    }
+    
+    @IBAction func morePositionsButtonPressed() {
+        page += 1
+        getPositions()
     }
     
     // MARK: - Navigation
