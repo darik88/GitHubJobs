@@ -6,13 +6,15 @@
 //
 
 import Foundation
+import Alamofire
 
 class NetworkManager {
     
     static let shared = NetworkManager()
     private init() {}
 
-    func getPositions(fromURL urlString: String, with completion: @escaping ([Job]) -> Void) {
+    /*
+    func getPositions(fromURL urlString: String, with completion: @escaping ([JobPosition]) -> Void) {
         
         guard let url = URL(string: urlString) else { return }
         
@@ -21,12 +23,26 @@ class NetworkManager {
             guard let data = data else { return }
             
             do {
-                let positions = try JSONDecoder().decode([Job].self, from: data)
+                let positions = try JSONDecoder().decode([JobPosition].self, from: data)
                 completion(positions)
             } catch let error {
                 print(error)
             }
         }.resume()
+    }
+    */
+    
+    func getPositionsViaAlamofire(with url: String, with completion: @escaping ([JobPosition]) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseDecodable(of: [JobPosition].self) { response in
+                switch response.result {
+                case .success(let result):
+                    completion(result)
+                case .failure(let error):
+                    print(error)
+                }
+            }
     }
 }
 

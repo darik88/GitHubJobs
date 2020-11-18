@@ -13,7 +13,7 @@ class PositionsListViewController: UIViewController {
     @IBOutlet var loaderActivityIndicator: UIActivityIndicatorView!
     @IBOutlet var morePositionsButton: UIButton!
     
-    var positions: [Job] = []
+    var positions: [JobPosition] = []
     var page: Int = 1
     var positionTitle: String!
     var locationTitle: String!
@@ -25,22 +25,30 @@ class PositionsListViewController: UIViewController {
         getPositions()
     }
     
+    @IBAction func morePositionsButtonPressed() {
+        page += 1
+        getPositions()
+    }
+    
+    
+    // MARK: - GET REQUEST
     private func getPositions() {
         morePositionsButton.isHidden = true
         loaderActivityIndicator.startAnimating()
         loaderActivityIndicator.hidesWhenStopped = true
         
         let url = "https://jobs.github.com/positions.json?description=\(positionTitle ?? "")&location=\(locationTitle ?? "")&page=\(page)"
-        
+
+        /*
         NetworkManager.shared.getPositions(fromURL: url) {(positions) in
             DispatchQueue.main.async {
-                
+
                 guard positions.count > 0 else {
                     self.loaderActivityIndicator.stopAnimating()
                     self.noResultsFoundAlert()
                     return
                 }
-                
+
                 self.positions = positions
                 self.tableView.reloadData()
                 self.loaderActivityIndicator.stopAnimating()
@@ -48,11 +56,24 @@ class PositionsListViewController: UIViewController {
                 self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             }
         }
-    }
-    
-    @IBAction func morePositionsButtonPressed() {
-        page += 1
-        getPositions()
+        */
+        
+        
+        NetworkManager.shared.getPositionsViaAlamofire(with: url) { (positions) in
+            DispatchQueue.main.async {
+                guard positions.count > 0 else {
+                    self.loaderActivityIndicator.stopAnimating()
+                    self.noResultsFoundAlert()
+                    return
+                }
+
+                self.positions = positions
+                self.tableView.reloadData()
+                self.loaderActivityIndicator.stopAnimating()
+                self.morePositionsButton.isHidden = false
+                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+            }
+        }
     }
     
     // MARK: - Navigation
@@ -80,9 +101,6 @@ class PositionsListViewController: UIViewController {
 
 extension PositionsListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if positions.count == 0 {
-//            noResultsFoundAlert()
-//        }
         return positions.count
     }
     

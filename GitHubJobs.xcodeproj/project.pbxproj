@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CDF9DB1BAAC4AC9A238FE87D /* Pods_GitHubJobs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60285AF24E0A7BEC7C281522 /* Pods_GitHubJobs.framework */; };
 		E376FBD725631A91008939DC /* PositionsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376FBD625631A91008939DC /* PositionsListViewController.swift */; };
 		E379399E25618466008D30E3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E379399D25618466008D30E3 /* NetworkManager.swift */; };
 		E39B3040255F4B8F00EFDE6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B303F255F4B8F00EFDE6D /* AppDelegate.swift */; };
@@ -15,11 +16,14 @@
 		E39B3047255F4B8F00EFDE6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E39B3045255F4B8F00EFDE6D /* Main.storyboard */; };
 		E39B3049255F4B9000EFDE6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E39B3048255F4B9000EFDE6D /* Assets.xcassets */; };
 		E39B304C255F4B9000EFDE6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E39B304A255F4B9000EFDE6D /* LaunchScreen.storyboard */; };
-		E39B3055255F502300EFDE6D /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B3054255F502300EFDE6D /* Job.swift */; };
+		E39B3055255F502300EFDE6D /* JobPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B3054255F502300EFDE6D /* JobPosition.swift */; };
 		E39B3062256010D700EFDE6D /* PositionInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39B3061256010D700EFDE6D /* PositionInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D554704A5F4FE20FDC489FA /* Pods-GitHubJobs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubJobs.release.xcconfig"; path = "Target Support Files/Pods-GitHubJobs/Pods-GitHubJobs.release.xcconfig"; sourceTree = "<group>"; };
+		60285AF24E0A7BEC7C281522 /* Pods_GitHubJobs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubJobs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C3CFFEC802118138783E4B7 /* Pods-GitHubJobs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubJobs.debug.xcconfig"; path = "Target Support Files/Pods-GitHubJobs/Pods-GitHubJobs.debug.xcconfig"; sourceTree = "<group>"; };
 		E376FBD625631A91008939DC /* PositionsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionsListViewController.swift; sourceTree = "<group>"; };
 		E379399D25618466008D30E3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E39B303C255F4B8F00EFDE6D /* GitHubJobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubJobs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,7 +34,7 @@
 		E39B3048255F4B9000EFDE6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E39B304B255F4B9000EFDE6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E39B304D255F4B9000EFDE6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E39B3054255F502300EFDE6D /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		E39B3054255F502300EFDE6D /* JobPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobPosition.swift; sourceTree = "<group>"; };
 		E39B3061256010D700EFDE6D /* PositionInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -39,12 +43,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDF9DB1BAAC4AC9A238FE87D /* Pods_GitHubJobs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		167B5F731D35101E073625B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				60285AF24E0A7BEC7C281522 /* Pods_GitHubJobs.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E37939A42561B2C7008D30E3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +82,8 @@
 			children = (
 				E39B303E255F4B8F00EFDE6D /* GitHubJobs */,
 				E39B303D255F4B8F00EFDE6D /* Products */,
+				F78D6C66855B6778E5AC8996 /* Pods */,
+				167B5F731D35101E073625B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,7 +119,7 @@
 		E3F761FF2561B4A800A78B7C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E39B3054255F502300EFDE6D /* Job.swift */,
+				E39B3054255F502300EFDE6D /* JobPosition.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -127,6 +142,15 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		F78D6C66855B6778E5AC8996 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7C3CFFEC802118138783E4B7 /* Pods-GitHubJobs.debug.xcconfig */,
+				2D554704A5F4FE20FDC489FA /* Pods-GitHubJobs.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +158,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E39B3050255F4B9000EFDE6D /* Build configuration list for PBXNativeTarget "GitHubJobs" */;
 			buildPhases = (
+				E05C8B27FA74ACC33DA4C70D /* [CP] Check Pods Manifest.lock */,
 				E39B3038255F4B8F00EFDE6D /* Sources */,
 				E39B3039255F4B8F00EFDE6D /* Frameworks */,
 				E39B303A255F4B8F00EFDE6D /* Resources */,
+				E5FFF39220628F4016E146EC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -192,6 +218,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E05C8B27FA74ACC33DA4C70D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GitHubJobs-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5FFF39220628F4016E146EC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GitHubJobs/Pods-GitHubJobs-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GitHubJobs/Pods-GitHubJobs-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GitHubJobs/Pods-GitHubJobs-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E39B3038255F4B8F00EFDE6D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -203,7 +271,7 @@
 				E379399E25618466008D30E3 /* NetworkManager.swift in Sources */,
 				E376FBD725631A91008939DC /* PositionsListViewController.swift in Sources */,
 				E39B3042255F4B8F00EFDE6D /* SceneDelegate.swift in Sources */,
-				E39B3055255F502300EFDE6D /* Job.swift in Sources */,
+				E39B3055255F502300EFDE6D /* JobPosition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +415,7 @@
 		};
 		E39B3051255F4B9000EFDE6D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C3CFFEC802118138783E4B7 /* Pods-GitHubJobs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -365,6 +434,7 @@
 		};
 		E39B3052255F4B9000EFDE6D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D554704A5F4FE20FDC489FA /* Pods-GitHubJobs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -15,7 +15,7 @@ class PositionInfoViewController: UIViewController {
     @IBOutlet var jobTypeLabel: UILabel!
     @IBOutlet var postedDateLabel: UILabel!
     @IBOutlet var jobDescriptionLabel: UILabel!
-    var position: Job!
+    var position: JobPosition!
     
     override func viewDidLoad() {
         super.viewDidLoad()
