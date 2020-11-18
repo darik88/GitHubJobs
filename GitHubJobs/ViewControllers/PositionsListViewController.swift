@@ -59,19 +59,19 @@ class PositionsListViewController: UIViewController {
         */
         
         
-        NetworkManager.shared.getPositionsViaAlamofire(with: url) { (positions) in
+        NetworkManager.shared.getPositionsViaAlamofire(with: url) { (positionsPerRequest) in
             DispatchQueue.main.async {
-                guard positions.count > 0 else {
+                guard positionsPerRequest.count > 0 else {
                     self.loaderActivityIndicator.stopAnimating()
                     self.noResultsFoundAlert()
                     return
                 }
 
-                self.positions = positions
+                self.positions += positionsPerRequest
                 self.tableView.reloadData()
                 self.loaderActivityIndicator.stopAnimating()
-                self.morePositionsButton.isHidden = false
-                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                // 50 positions per request by default
+                self.morePositionsButton.isHidden = positionsPerRequest.count < 50
             }
         }
     }
