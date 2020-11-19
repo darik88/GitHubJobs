@@ -13,7 +13,6 @@ class NetworkManager {
     static let shared = NetworkManager()
     private init() {}
 
-    /*
     func getPositions(fromURL urlString: String, with completion: @escaping ([JobPosition]) -> Void) {
         
         guard let url = URL(string: urlString) else { return }
@@ -30,7 +29,6 @@ class NetworkManager {
             }
         }.resume()
     }
-    */
     
     func getPositionsViaAlamofire(with url: String, with completion: @escaping ([JobPosition]) -> Void) {
         AF.request(url)

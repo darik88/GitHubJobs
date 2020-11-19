@@ -22,43 +22,25 @@ class PositionsListViewController: UIViewController {
         super.viewDidLoad()
         positionTitle = positionTitle.replacingOccurrences(of: " ", with: "+")
         locationTitle = locationTitle.replacingOccurrences(of: " ", with: "+")
-        getPositions()
+        getPositionsRequestAlamofire()
     }
     
     @IBAction func morePositionsButtonPressed() {
         page += 1
-        getPositions()
+        getPositionsRequestAlamofire()
     }
     
     
-    // MARK: - GET REQUEST
-    private func getPositions() {
+    // MARK: - GET REQUESTS
+    
+    // Alamofire get request
+    private func getPositionsRequestAlamofire() {
         morePositionsButton.isHidden = true
         loaderActivityIndicator.startAnimating()
         loaderActivityIndicator.hidesWhenStopped = true
         
         let url = "https://jobs.github.com/positions.json?description=\(positionTitle ?? "")&location=\(locationTitle ?? "")&page=\(page)"
 
-        /*
-        NetworkManager.shared.getPositions(fromURL: url) {(positions) in
-            DispatchQueue.main.async {
-
-                guard positions.count > 0 else {
-                    self.loaderActivityIndicator.stopAnimating()
-                    self.noResultsFoundAlert()
-                    return
-                }
-
-                self.positions = positions
-                self.tableView.reloadData()
-                self.loaderActivityIndicator.stopAnimating()
-                self.morePositionsButton.isHidden = false
-                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-            }
-        }
-        */
-        
-        
         NetworkManager.shared.getPositionsViaAlamofire(with: url) { (positionsPerRequest) in
             DispatchQueue.main.async {
                 guard positionsPerRequest.count > 0 else {
@@ -66,7 +48,32 @@ class PositionsListViewController: UIViewController {
                     self.noResultsFoundAlert()
                     return
                 }
+                
+                self.positions += positionsPerRequest
+                self.tableView.reloadData()
+                self.loaderActivityIndicator.stopAnimating()
+                // 50 positions per request by default
+                self.morePositionsButton.isHidden = positionsPerRequest.count < 50
+            }
+        }
+    }
+    
+    // URLSession get request
+    private func getPositionsRequestURLSession() {
+        morePositionsButton.isHidden = true
+        loaderActivityIndicator.startAnimating()
+        loaderActivityIndicator.hidesWhenStopped = true
+        
+        let url = "https://jobs.github.com/positions.json?description=\(positionTitle ?? "")&location=\(locationTitle ?? "")&page=\(page)"
 
+        NetworkManager.shared.getPositions(fromURL: url) {(positionsPerRequest) in
+            DispatchQueue.main.async {
+                guard positionsPerRequest.count > 0 else {
+                    self.loaderActivityIndicator.stopAnimating()
+                    self.noResultsFoundAlert()
+                    return
+                }
+                
                 self.positions += positionsPerRequest
                 self.tableView.reloadData()
                 self.loaderActivityIndicator.stopAnimating()
@@ -99,6 +106,7 @@ class PositionsListViewController: UIViewController {
 
 }
 
+// MARK: - UITableViewDataSource, UITableViewDelegate
 extension PositionsListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return positions.count
