@@ -25,6 +25,7 @@ class PositionInfoViewController: UIViewController {
         jobTypeLabel.text = "Job type: \(position.type ?? "0")"
         postedDateLabel.text = position.created_at
         jobDescriptionLabel.attributedText = position.description?.htmlAttributedString()
+        jobDescriptionLabel.font = jobDescriptionLabel.font.withSize(16)
     }
 }
 
