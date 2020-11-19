@@ -99,7 +99,7 @@ class PositionsListViewController: UIViewController {
 
 }
 
-extension PositionsListViewController: UITableViewDataSource {
+extension PositionsListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return positions.count
     }
@@ -109,7 +109,10 @@ extension PositionsListViewController: UITableViewDataSource {
         cell.textLabel?.text = positions[indexPath.row].title
         cell.textLabel?.numberOfLines = 0
         cell.detailTextLabel?.text = positions[indexPath.row].company
-        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
