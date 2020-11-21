@@ -33,14 +33,15 @@ class NetworkManager {
     func getPositionsViaAlamofire(with url: String, with completion: @escaping ([JobPosition]) -> Void) {
         AF.request(url)
             .validate()
-            .responseDecodable(of: [JobPosition].self) { response in
-                switch response.result {
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
                 case .success(let result):
-                    completion(result)
+                    completion(JobPosition.getPositions(from: result) ?? [])
                 case .failure(let error):
                     print(error)
                 }
             }
+        
     }
 }
 
