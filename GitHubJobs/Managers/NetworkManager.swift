@@ -36,7 +36,8 @@ class NetworkManager {
             .responseJSON { dataResponse in
                 switch dataResponse.result {
                 case .success(let result):
-                    completion(JobPosition.getPositions(from: result) ?? [])
+                    let jobPositions = JobPosition.getPositions(from: result) ?? []
+                    completion(jobPositions)
                 case .failure(let error):
                     print(error)
                 }
